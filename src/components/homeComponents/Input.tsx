@@ -2,6 +2,8 @@
 
 import React from "react";
 
+import { useRouter } from "next/navigation";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import { AiOutlineSearch } from "react-icons/ai";
 
@@ -10,7 +12,10 @@ import type { CharacterSearchInput } from "@/types/input";
 const Input = () => {
   const { register, handleSubmit } = useForm<CharacterSearchInput>();
 
+  const navigate = useRouter();
+
   const onSubmitHandler: SubmitHandler<CharacterSearchInput> = (data) => {
+    navigate.push("/characterInfo");
     console.log(data);
   };
 
