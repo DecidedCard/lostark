@@ -14,9 +14,14 @@ const Input = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmitHandler)} className="mx-auto">
-      <input {...register("name")} className="w-96" />
-      <button type="submit">검색</button>
+    <form
+      onSubmit={handleSubmit(onSubmitHandler)}
+      className="flex mx-auto mt-2 w-min h-8 border border-solid border-black"
+    >
+      <input {...register("name")} placeholder="캐릭터 검색" className="w-96" />
+      <button type="submit" className="w-10">
+        검색
+      </button>
     </form>
   );
 };
