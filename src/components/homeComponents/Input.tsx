@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -12,8 +14,9 @@ const Input = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmitHandler)}>
-      <input {...register("name")} />
+    <form onSubmit={handleSubmit(onSubmitHandler)} className="mx-auto">
+      <input {...register("name")} className="w-96" />
+      <button type="submit">검색</button>
     </form>
   );
 };
