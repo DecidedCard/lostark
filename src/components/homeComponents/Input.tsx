@@ -22,16 +22,18 @@ const Input = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmitHandler)}
-      className="flex mx-auto mt-2 w-min h-8 bg-primary-100 rounded-lg"
+      className="flex justify-center items-center w-full h-16 border-b border-solid border-primary-100"
     >
-      <input
-        {...register("name")}
-        placeholder="캐릭터 검색"
-        className="w-96 pl-1 bg-primary-100 rounded-lg focus:outline-none"
-      />
-      <button type="submit" className="flex justify-center items-center w-10">
-        <AiOutlineSearch />
-      </button>
+      <div className="flex w-min h-10 bg-primary-100 rounded-lg">
+        <input
+          {...register("name")}
+          placeholder="캐릭터 검색"
+          className="w-[720px] pl-1 bg-primary-100 rounded-lg focus:outline-none"
+        />
+        <button type="submit" className="flex justify-center items-center w-10">
+          <AiOutlineSearch />
+        </button>
+      </div>
     </form>
   );
 };

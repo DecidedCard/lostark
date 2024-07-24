@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="flex">
       <SideNavigationBar />
-      <main>
+      <main className="w-full">
         <Input />
       </main>
     </div>
