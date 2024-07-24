@@ -9,7 +9,7 @@ const SideNavigationBar = () => {
   return (
     <>
       <nav className="flex flex-col justify-between h-screen list-none">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 text-text">
           <h1 className="font-bold text-3xl mb-4">테스트</h1>
           <li className="flex items-center gap-2">
             <label>
