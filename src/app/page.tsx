@@ -11,7 +11,7 @@ export default function Home() {
       <SideNavigationBar />
       <main className="w-full">
         <Input />
-        <div className="flex w-2/3">
+        <div className="flex w-3/4">
           <Schedule />
           <Notice />
         </div>
