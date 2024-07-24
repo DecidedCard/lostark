@@ -8,8 +8,8 @@ import { BsGrid1X2 } from "react-icons/bs";
 const SideNavigationBar = () => {
   return (
     <>
-      <nav className="flex flex-col justify-between h-screen list-none border-r border-solid border-primary-200">
-        <div className="flex flex-col gap-2 text-text-100">
+      <nav className="flex flex-col justify-between w-36 h-screen list-none border-r border-solid border-primary-200">
+        <section className="flex flex-col gap-2 text-text-100">
           <h1 className="font-bold text-3xl mb-4">테스트</h1>
           <li className="flex items-center gap-2">
             <label>
@@ -53,8 +53,9 @@ const SideNavigationBar = () => {
             </label>
             <p>빠른도구</p>
           </li>
-        </div>
-        <div className="text-text-200 text-sm">
+        </section>
+
+        <section className="text-text-200 text-xm">
           <li>
             <p>시스템 현황</p>
           </li>
@@ -67,7 +68,7 @@ const SideNavigationBar = () => {
           <li>
             <p>개인정보처리방침</p>
           </li>
-        </div>
+        </section>
       </nav>
     </>
   );
