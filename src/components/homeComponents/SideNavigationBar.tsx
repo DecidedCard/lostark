@@ -8,7 +8,7 @@ import { BsGrid1X2 } from "react-icons/bs";
 const SideNavigationBar = () => {
   return (
     <>
-      <nav className="flex flex-col justify-between h-screen list-none">
+      <nav className="flex flex-col justify-between h-screen list-none border-r border-solid border-primary-200">
         <div className="flex flex-col gap-2 text-text-100">
           <h1 className="font-bold text-3xl mb-4">테스트</h1>
           <li className="flex items-center gap-2">
