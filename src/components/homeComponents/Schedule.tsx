@@ -4,24 +4,12 @@ import React from "react";
 
 import useGameContentsCalendar from "@/hook/useGameContentsCalendar";
 
-import type { calendar } from "@/types/calendar";
-import useIslandStore from "@/store/islandStore";
-
 const Schedule = () => {
-  const { data, isError, isFetching } = useGameContentsCalendar();
-  const { setIsland } = useIslandStore();
+  const { fieldBossTime, gateTime, island, isError, isFetching } =
+    useGameContentsCalendar();
 
   if (isFetching) {
     return <div>로딩 중....</div>;
-  }
-
-  if (!isFetching && data) {
-    let islandArr: calendar[] = [];
-    data.map((item: calendar) => {
-      if (item.CategoryName === "모험 섬") {
-        islandArr.push(item);
-      }
-    });
   }
 
   return (
@@ -81,7 +69,7 @@ const Schedule = () => {
       <section className="my-2 flex justify-between border-b border-solid border-primary-200">
         <label>필드보스</label>
         <div className="flex gap-2">
-          <p>에정된시간</p>
+          <p>{fieldBossTime.slice(11, 16)}</p>
           <p>남은시간</p>
         </div>
       </section>
@@ -89,7 +77,7 @@ const Schedule = () => {
       <section className="my-2 flex justify-between">
         <label>카오스게이트</label>
         <div className="flex gap-2">
-          <p>에정된시간</p>
+          <p>{gateTime.slice(11, 16)}</p>
           <p>남은시간</p>
         </div>
       </section>
