@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
+
 import { Inter } from "next/font/google";
+
 import "./globals.css";
+
+import SideNavigationBar from "@/components/homeComponents/SideNavigationBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +21,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${inter.className} mx-auto max-w-7xl min-w-[1280px] bg-bg-100`}
+        className={`${inter.className} flex mx-auto max-w-7xl min-w-[1280px] bg-bg-100`}
       >
+        <SideNavigationBar />
         {children}
       </body>
     </html>

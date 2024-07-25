@@ -4,6 +4,7 @@ import { FaHome, FaUserFriends, FaTools } from "react-icons/fa";
 import { FaRankingStar, FaEarthAmericas } from "react-icons/fa6";
 import { SlDocs } from "react-icons/sl";
 import { BsGrid1X2 } from "react-icons/bs";
+import Link from "next/link";
 
 const SideNavigationBar = () => {
   return (
@@ -11,17 +12,21 @@ const SideNavigationBar = () => {
       <nav className="flex flex-col justify-between w-36 h-screen list-none border-r border-solid border-primary-200">
         <section className="flex flex-col gap-2 text-text-100">
           <h1 className="font-bold text-3xl mb-4">테스트</h1>
-          <li className="flex items-center gap-2">
-            <label>
-              <FaHome />
-            </label>
-            <p>홈</p>
+          <li>
+            <Link href={"/"} className="flex items-center gap-2">
+              <label>
+                <FaHome />
+              </label>
+              <p>홈</p>
+            </Link>
           </li>
-          <li className="flex items-center gap-2">
-            <label>
-              <FaRankingStar />
-            </label>
-            <p>랭킹</p>
+          <li>
+            <Link href={"/ranking"} className="flex items-center gap-2">
+              <label>
+                <FaRankingStar />
+              </label>
+              <p>랭킹</p>
+            </Link>
           </li>
           <li className="flex items-center gap-2">
             <label>

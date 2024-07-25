@@ -8,18 +8,17 @@ import SideNavigationBar from "@/components/homeComponents/SideNavigationBar";
 
 export default function Home() {
   return (
-    <div className="flex">
-      <SideNavigationBar />
-      <main className="w-full">
+    <main className="w-full">
+      <section className="mx-auto w-full">
         <Input />
-        <section className="flex">
-          <div className="flex w-3/4 border-r border-solid border-primary-200">
-            <Schedule />
-            <Notice />
-          </div>
-          <Popularity />
-        </section>
-      </main>
-    </div>
+      </section>
+      <section className="flex">
+        <div className="flex w-3/4 border-r border-solid border-primary-200">
+          <Schedule />
+          <Notice />
+        </div>
+        <Popularity />
+      </section>
+    </main>
   );
 }

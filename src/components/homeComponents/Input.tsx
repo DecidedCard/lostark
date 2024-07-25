@@ -22,7 +22,7 @@ const Input = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmitHandler)}
-      className="flex justify-center items-center w-full h-16 border-b border-solid border-primary-100"
+      className="flex justify-center items-center h-16 border-b border-solid border-primary-100"
     >
       <div className="flex w-min h-10 bg-primary-100 rounded-lg">
         <input
