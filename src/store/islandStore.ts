@@ -1,5 +1,7 @@
 import { create } from "zustand";
 
+import { calendar } from "@/types/calendar";
+
 type Store = {
   island: calendar[];
   setIsland: (arg: calendar) => void;

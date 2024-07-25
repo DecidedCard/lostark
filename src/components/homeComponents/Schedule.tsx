@@ -1,16 +1,28 @@
 "use client";
 
-import useGameContentsCalendar from "@/hook/useGameContentsCalendar";
 import React from "react";
+
+import useGameContentsCalendar from "@/hook/useGameContentsCalendar";
+
+import type { calendar } from "@/types/calendar";
+import useIslandStore from "@/store/islandStore";
 
 const Schedule = () => {
   const { data, isError, isFetching } = useGameContentsCalendar();
+  const { setIsland } = useIslandStore();
 
   if (isFetching) {
     return <div>로딩 중....</div>;
   }
 
-  console.log(data);
+  if (!isFetching && data) {
+    let islandArr: calendar[] = [];
+    data.map((item: calendar) => {
+      if (item.CategoryName === "모험 섬") {
+        islandArr.push(item);
+      }
+    });
+  }
 
   return (
     <div className="m-2 p-1 w-3/4 h-min border border-solid border-primary-200 rounded-lg">

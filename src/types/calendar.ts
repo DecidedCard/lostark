@@ -1,4 +1,4 @@
-type calendar = {
+export type calendar = {
   CategoryName: string;
   ContentsName: string;
   ContentsIcon: string;

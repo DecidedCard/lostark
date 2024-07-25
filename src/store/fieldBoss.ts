@@ -1,5 +1,7 @@
 import { create } from "zustand";
 
+import type { calendar } from "@/types/calendar";
+
 type Store = {
   fieldBoss: calendar[];
   setFieldBoss: (arg: calendar) => void;
