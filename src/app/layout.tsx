@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import SideNavigationBar from "@/components/homeComponents/SideNavigationBar";
+import Provider from "./Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,8 +24,10 @@ export default function RootLayout({
       <body
         className={`${inter.className} flex mx-auto max-w-7xl min-w-[1280px] bg-bg-100`}
       >
-        <SideNavigationBar />
-        {children}
+        <Provider>
+          <SideNavigationBar />
+          {children}
+        </Provider>
       </body>
     </html>
   );
