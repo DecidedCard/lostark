@@ -1,6 +1,17 @@
+"use client";
+
+import useGameContentsCalendar from "@/hook/useGameContentsCalendar";
 import React from "react";
 
 const Schedule = () => {
+  const { data, isError, isFetching } = useGameContentsCalendar();
+
+  if (isFetching) {
+    return <div>로딩 중....</div>;
+  }
+
+  console.log(data);
+
   return (
     <div className="m-2 p-1 w-3/4 h-min border border-solid border-primary-200 rounded-lg">
       <h2 className="border-b border-solid border-primary-200">오늘의 일정</h2>

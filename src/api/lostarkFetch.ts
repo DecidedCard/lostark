@@ -11,7 +11,7 @@ export const characters = async (name: string) => {
 
 export const contentsCalender = async () => {
   try {
-    const info = await lostark.get("/gamecontents/calender");
+    const info = await lostark.get("/gamecontents/calendar");
     return info;
   } catch (error) {
     return error;
