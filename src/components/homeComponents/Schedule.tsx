@@ -2,7 +2,7 @@ import React from "react";
 
 const Schedule = () => {
   return (
-    <div className="m-2 p-1 w-3/4 border border-solid border-primary-200 rounded-lg">
+    <div className="m-2 p-1 w-3/4 h-min border border-solid border-primary-200 rounded-lg">
       <h2 className="border-b border-solid border-primary-200">오늘의 일정</h2>
 
       <section className="flex justify-between">
