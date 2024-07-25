@@ -4,13 +4,13 @@ import type { calendar } from "@/types/calendar";
 
 type Store = {
   gate: calendar[];
-  setIsland: (arg: calendar) => void;
+  setGate: (arg: calendar) => void;
   setReset: () => void;
 };
 
 const useGateStore = create<Store>()((set) => ({
   gate: [],
-  setIsland: (arg) => set((item) => ({ gate: [...item.gate, arg] })),
+  setGate: (arg) => set((item) => ({ gate: [...item.gate, arg] })),
   setReset: () => set(() => ({ gate: [] })),
 }));
 
