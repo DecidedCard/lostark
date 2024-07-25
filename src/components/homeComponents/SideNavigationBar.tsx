@@ -52,11 +52,13 @@ const SideNavigationBar = () => {
               <p>길드</p>
             </Link>
           </li>
-          <li className="flex items-center gap-2">
-            <label>
-              <FaTools />
-            </label>
-            <p>도구</p>
+          <li>
+            <Link href={"/tools"} className="flex items-center gap-2">
+              <label>
+                <FaTools />
+              </label>
+              <p>도구</p>
+            </Link>
           </li>
           <li className="flex items-center gap-2">
             <label>
