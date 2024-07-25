@@ -28,23 +28,29 @@ const SideNavigationBar = () => {
               <p>랭킹</p>
             </Link>
           </li>
-          <li className="flex items-center gap-2">
-            <label>
-              <SlDocs />
-            </label>
-            <p>군장검사</p>
+          <li>
+            <Link href={"/multi_search"} className="flex items-center gap-2">
+              <label>
+                <SlDocs />
+              </label>
+              <p>군장검사</p>
+            </Link>
           </li>
-          <li className="flex items-center gap-2">
-            <label>
-              <FaEarthAmericas />
-            </label>
-            <p>수집품</p>
+          <li>
+            <Link href={"/collection"} className="flex items-center gap-2">
+              <label>
+                <FaEarthAmericas />
+              </label>
+              <p>수집품</p>
+            </Link>
           </li>
-          <li className="flex items-center gap-2">
-            <label>
-              <FaUserFriends />
-            </label>
-            <p>길드</p>
+          <li>
+            <Link href={"/guild"} className="flex items-center gap-2">
+              <label>
+                <FaUserFriends />
+              </label>
+              <p>길드</p>
+            </Link>
           </li>
           <li className="flex items-center gap-2">
             <label>
