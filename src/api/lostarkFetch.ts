@@ -8,3 +8,12 @@ export const characters = async (name: string) => {
     return error;
   }
 };
+
+export const contentsCalender = async () => {
+  try {
+    const info = await lostark.get("/gamecontents/calender");
+    return info;
+  } catch (error) {
+    return error;
+  }
+};
