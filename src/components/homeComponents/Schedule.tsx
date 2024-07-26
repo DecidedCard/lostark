@@ -11,6 +11,8 @@ const Schedule = () => {
   const [fieldBossTimeCheck, setFieldBossTimeCheck] = useState("");
   const [gateTimeCheck, setGateTimeCheck] = useState("");
 
+  const [timeCheck, setTimeCheck] = useState(true);
+
   useEffect(() => {
     if (fieldBossTime.length !== 0) {
       setFieldBossTimeCheck(timeCalculation(fieldBossTime));
@@ -19,7 +21,11 @@ const Schedule = () => {
     if (gateTime.length !== 0) {
       setGateTimeCheck(timeCalculation(gateTime));
     }
-  }, [fieldBossTime, gateTime]);
+
+    setTimeout(() => {
+      setTimeCheck(!timeCheck);
+    }, 1000 * 60);
+  }, [fieldBossTime, gateTime, timeCheck]);
 
   if (isFetching) {
     return <div>로딩 중....</div>;
