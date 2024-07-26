@@ -22,7 +22,6 @@ const useGameContentsCalendar = () => {
     queryFn: contentsCalender,
     retry: 0,
     refetchOnWindowFocus: false,
-    staleTime: 1000 * 60 * 60 * 24,
   });
 
   useEffect(() => {
