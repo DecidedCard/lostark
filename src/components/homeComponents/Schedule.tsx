@@ -1,12 +1,25 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import useGameContentsCalendar from "@/hook/useGameContentsCalendar";
+import timeCalculation from "@/util/timeCalculation";
 
 const Schedule = () => {
   const { fieldBossTime, gateTime, island, isError, isFetching } =
     useGameContentsCalendar();
+  const [fieldBossTimeCheck, setFieldBossTimeCheck] = useState("");
+  const [gateTimeCheck, setGateTimeCheck] = useState("");
+
+  useEffect(() => {
+    if (fieldBossTime.length !== 0) {
+      setFieldBossTimeCheck(timeCalculation(fieldBossTime));
+    }
+
+    if (gateTime.length !== 0) {
+      setGateTimeCheck(timeCalculation(gateTime));
+    }
+  }, [fieldBossTime, gateTime]);
 
   if (isFetching) {
     return <div>로딩 중....</div>;
@@ -70,7 +83,7 @@ const Schedule = () => {
         <label>필드보스</label>
         <div className="flex gap-2">
           <p>{fieldBossTime.slice(11, 16)}</p>
-          <p>남은시간</p>
+          <p>{fieldBossTimeCheck}</p>
         </div>
       </section>
 
@@ -78,7 +91,7 @@ const Schedule = () => {
         <label>카오스게이트</label>
         <div className="flex gap-2">
           <p>{gateTime.slice(11, 16)}</p>
-          <p>남은시간</p>
+          <p>{gateTimeCheck}</p>
         </div>
       </section>
     </div>
