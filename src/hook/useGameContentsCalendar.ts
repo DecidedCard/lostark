@@ -7,8 +7,8 @@ import { contentsCalender } from "@/api/lostarkFetch";
 import QUERY_KEY from "@/util/QUERY_KEY";
 
 import useIslandStore from "@/store/islandStore";
-import useFieldBossStore from "@/store/fieldBoss";
-import useGateStore from "@/store/gate";
+import useFieldBossStore from "@/store/fieldBossStore";
+import useGateStore from "@/store/gateStore";
 
 import type { calendar } from "@/types/calendar";
 
