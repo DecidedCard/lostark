@@ -20,6 +20,8 @@ const Schedule = () => {
 
   const [timeCheck, setTimeCheck] = useState(true);
 
+  const today = new Date();
+
   useEffect(() => {
     if (islandTime.length !== 0) {
       setIslandTimeCheck(timeCalculation(islandTime));
@@ -42,6 +44,8 @@ const Schedule = () => {
     return <div>로딩 중....</div>;
   }
 
+  console.log(todayIsland);
+
   return (
     <div className="m-2 p-1 w-3/4 h-min border border-solid border-primary-200 rounded-lg">
       <h2 className="border-b border-solid border-primary-200">오늘의 일정</h2>
@@ -55,18 +59,14 @@ const Schedule = () => {
       </section>
 
       <section className="border-b border-solid border-primary-200">
-        <ol className="flex justify-between">
-          <label>모험 섬</label>
-          <p>보상</p>
-        </ol>
-        <ol className="flex justify-between">
-          <label>모험 섬</label>
-          <p>보상</p>
-        </ol>
-        <ol className="flex justify-between">
-          <label>모험 섬</label>
-          <p>보상</p>
-        </ol>
+        {todayIsland.map((i, idx) => {
+          return (
+            <ol key={idx} className="flex justify-between">
+              <label>모험 섬</label>
+              <p>보상</p>
+            </ol>
+          );
+        })}
       </section>
 
       <section className="my-2 border-b border-solid border-primary-200">

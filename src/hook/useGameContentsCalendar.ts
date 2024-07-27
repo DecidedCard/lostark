@@ -39,7 +39,10 @@ const useGameContentsCalendar = () => {
         if (item.CategoryName === "모험 섬") {
           setIsland(item);
           for (let i of item.StartTimes) {
-            if (today.getDate() === new Date(i).getDate()) {
+            if (
+              today.getDate() === new Date(i).getDate() &&
+              today.getHours() < new Date(i).getHours()
+            ) {
               setTodayIsland(item);
               break;
             }
@@ -54,9 +57,6 @@ const useGameContentsCalendar = () => {
       });
     }
   }, [data, isFetching, setIsland, setTodayIsland, setFieldBoss, setGate]);
-
-  console.log(todayIsland);
-  console.log(islandTime);
 
   if (todayIsland.length !== 0) {
     for (let i of todayIsland) {
