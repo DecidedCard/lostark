@@ -6,10 +6,11 @@ import useGameContentsCalendar from "@/hook/useGameContentsCalendar";
 import timeCalculation from "@/util/timeCalculation";
 
 const Schedule = () => {
-  const { fieldBossTime, gateTime, island, isError, isFetching } =
+  const { fieldBossTime, gateTime, todayIsland, isError, isFetching } =
     useGameContentsCalendar();
   const [fieldBossTimeCheck, setFieldBossTimeCheck] = useState("");
   const [gateTimeCheck, setGateTimeCheck] = useState("");
+  console.log(todayIsland);
 
   const [timeCheck, setTimeCheck] = useState(true);
 

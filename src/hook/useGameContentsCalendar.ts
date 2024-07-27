@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 
@@ -11,11 +11,18 @@ import useFieldBossStore from "@/store/fieldBossStore";
 import useGateStore from "@/store/gateStore";
 
 import type { calendar } from "@/types/calendar";
+import useTodayIslandStore from "@/store/todayIslandStore";
 
 const useGameContentsCalendar = () => {
   const { island, setIsland } = useIslandStore();
+  const { todayIsland, setTodayIsland } = useTodayIslandStore();
   const { fieldBoss, setFieldBoss } = useFieldBossStore();
   const { gate, setGate } = useGateStore();
+
+  const today = new Date();
+
+  let fieldBossTime = "";
+  let gateTime = "";
 
   const { isError, isFetching, data } = useQuery({
     queryKey: [QUERY_KEY.gameContents],
@@ -25,10 +32,14 @@ const useGameContentsCalendar = () => {
   });
 
   useEffect(() => {
+    const today = new Date();
     if (!isFetching && data) {
       data.map((item: calendar) => {
         if (item.CategoryName === "모험 섬") {
           setIsland(item);
+          if (new Date(item.StartTimes[0]).getDate() === today.getDate()) {
+            setTodayIsland(item);
+          }
         }
         if (item.CategoryName === "필드보스") {
           setFieldBoss(item);
@@ -38,12 +49,7 @@ const useGameContentsCalendar = () => {
         }
       });
     }
-  }, [data, isFetching, setIsland, setFieldBoss, setGate]);
-
-  const today = new Date();
-
-  let fieldBossTime = "";
-  let gateTime = "";
+  }, [data, isFetching, setIsland, setTodayIsland, setFieldBoss, setGate]);
 
   if (gate.length !== 0) {
     for (let item of gate[0].StartTimes) {
@@ -65,7 +71,7 @@ const useGameContentsCalendar = () => {
     }
   }
 
-  return { isError, isFetching, island, fieldBossTime, gateTime };
+  return { isError, isFetching, todayIsland, fieldBossTime, gateTime };
 };
 
 export default useGameContentsCalendar;

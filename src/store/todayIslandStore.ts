@@ -4,13 +4,13 @@ import { calendar } from "@/types/calendar";
 
 type Store = {
   todayIsland: calendar[];
-  setIsland: (arg: calendar) => void;
+  setTodayIsland: (arg: calendar) => void;
   setReset: () => void;
 };
 
 const useTodayIslandStore = create<Store>()((set) => ({
   todayIsland: [],
-  setIsland: (arg) =>
+  setTodayIsland: (arg) =>
     set((item) => ({ todayIsland: [...item.todayIsland, arg] })),
   setReset: () => set(() => ({ todayIsland: [] })),
 }));
