@@ -10,7 +10,6 @@ const Schedule = () => {
     useGameContentsCalendar();
   const [fieldBossTimeCheck, setFieldBossTimeCheck] = useState("");
   const [gateTimeCheck, setGateTimeCheck] = useState("");
-  console.log(todayIsland);
 
   const [timeCheck, setTimeCheck] = useState(true);
 

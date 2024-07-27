@@ -31,14 +31,19 @@ const useGameContentsCalendar = () => {
     refetchOnWindowFocus: false,
   });
 
+  console.log("todayIsland", todayIsland);
+
   useEffect(() => {
     const today = new Date();
     if (!isFetching && data) {
       data.map((item: calendar) => {
         if (item.CategoryName === "모험 섬") {
           setIsland(item);
-          if (new Date(item.StartTimes[0]).getDate() === today.getDate()) {
-            setTodayIsland(item);
+          for (let i of item.StartTimes) {
+            if (today.getDate() === new Date(i).getDate()) {
+              setTodayIsland(item);
+              break;
+            }
           }
         }
         if (item.CategoryName === "필드보스") {
