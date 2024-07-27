@@ -6,14 +6,25 @@ import useGameContentsCalendar from "@/hook/useGameContentsCalendar";
 import timeCalculation from "@/util/timeCalculation";
 
 const Schedule = () => {
-  const { fieldBossTime, gateTime, todayIsland, isError, isFetching } =
-    useGameContentsCalendar();
+  const {
+    islandTime,
+    fieldBossTime,
+    gateTime,
+    todayIsland,
+    isError,
+    isFetching,
+  } = useGameContentsCalendar();
+  const [islandTimeCheck, setIslandTimeCheck] = useState("");
   const [fieldBossTimeCheck, setFieldBossTimeCheck] = useState("");
   const [gateTimeCheck, setGateTimeCheck] = useState("");
 
   const [timeCheck, setTimeCheck] = useState(true);
 
   useEffect(() => {
+    if (islandTime.length !== 0) {
+      setIslandTimeCheck(timeCalculation(islandTime));
+    }
+
     if (fieldBossTime.length !== 0) {
       setFieldBossTimeCheck(timeCalculation(fieldBossTime));
     }
@@ -25,7 +36,7 @@ const Schedule = () => {
     setTimeout(() => {
       setTimeCheck(!timeCheck);
     }, 1000 * 60);
-  }, [fieldBossTime, gateTime, timeCheck]);
+  }, [islandTime, fieldBossTime, gateTime, timeCheck]);
 
   if (isFetching) {
     return <div>로딩 중....</div>;
@@ -38,8 +49,8 @@ const Schedule = () => {
       <section className="flex justify-between">
         <label>모험 섬</label>
         <div className="flex gap-2">
-          <p>예정된시간</p>
-          <p>남은시간</p>
+          <p>{islandTime.slice(11, 16)}</p>
+          <p>{islandTimeCheck}</p>
         </div>
       </section>
 

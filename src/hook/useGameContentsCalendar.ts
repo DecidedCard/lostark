@@ -9,18 +9,19 @@ import QUERY_KEY from "@/util/QUERY_KEY";
 import useIslandStore from "@/store/islandStore";
 import useFieldBossStore from "@/store/fieldBossStore";
 import useGateStore from "@/store/gateStore";
-
-import type { calendar } from "@/types/calendar";
 import useTodayIslandStore from "@/store/todayIslandStore";
 
+import type { calendar } from "@/types/calendar";
+
 const useGameContentsCalendar = () => {
-  const { island, setIsland } = useIslandStore();
+  const { setIsland } = useIslandStore();
   const { todayIsland, setTodayIsland } = useTodayIslandStore();
   const { fieldBoss, setFieldBoss } = useFieldBossStore();
   const { gate, setGate } = useGateStore();
 
   const today = new Date();
 
+  let islandTime = "";
   let fieldBossTime = "";
   let gateTime = "";
 
@@ -30,8 +31,6 @@ const useGameContentsCalendar = () => {
     retry: 0,
     refetchOnWindowFocus: false,
   });
-
-  console.log("todayIsland", todayIsland);
 
   useEffect(() => {
     const today = new Date();
@@ -56,12 +55,18 @@ const useGameContentsCalendar = () => {
     }
   }, [data, isFetching, setIsland, setTodayIsland, setFieldBoss, setGate]);
 
-  if (gate.length !== 0) {
-    for (let item of gate[0].StartTimes) {
-      const date = new Date(item);
-      if (today < date) {
-        gateTime = item;
-        break;
+  console.log(todayIsland);
+  console.log(islandTime);
+
+  if (todayIsland.length !== 0) {
+    for (let i of todayIsland) {
+      for (let j of i.StartTimes) {
+        const date = new Date(j);
+        if (today < date) {
+          console.log("check");
+          islandTime = j;
+          break;
+        }
       }
     }
   }
@@ -76,7 +81,24 @@ const useGameContentsCalendar = () => {
     }
   }
 
-  return { isError, isFetching, todayIsland, fieldBossTime, gateTime };
+  if (gate.length !== 0) {
+    for (let item of gate[0].StartTimes) {
+      const date = new Date(item);
+      if (today < date) {
+        gateTime = item;
+        break;
+      }
+    }
+  }
+
+  return {
+    isError,
+    isFetching,
+    todayIsland,
+    islandTime,
+    fieldBossTime,
+    gateTime,
+  };
 };
 
 export default useGameContentsCalendar;
